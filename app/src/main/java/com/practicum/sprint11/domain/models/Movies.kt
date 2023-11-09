@@ -1,4 +1,4 @@
-package com.practicum.sprint11
+package com.practicum.sprint11.domain.models
 
 data class Movies(val id: String,
                   val resultType: String,

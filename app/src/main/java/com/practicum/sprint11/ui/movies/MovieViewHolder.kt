@@ -1,4 +1,4 @@
-package com.practicum.sprint11
+package com.practicum.sprint11.ui.movies
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,17 +7,18 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.practicum.sprint11.R
+import com.practicum.sprint11.domain.models.Movies
 
 class MovieViewHolder(parent: ViewGroup) :
     RecyclerView.ViewHolder(
         LayoutInflater.from(parent.context)
             .inflate(R.layout.movies_list_item, parent, false)) {
-    var name: TextView = itemView.findViewById(R.id.moviesList)
 
-    fun bind(location: Movies) {
-        val movieCover: ImageView = itemView.findViewById(R.id.imageMovies)
-        val movieName: TextView = itemView.findViewById(R.id.movieName)
-        val movieDescription: TextView = itemView.findViewById(R.id.movieDescription)
+
+        private val movieCover: ImageView = itemView.findViewById(R.id.imageMovies)
+        private val movieName: TextView = itemView.findViewById(R.id.movieName)
+        private val movieDescription: TextView = itemView.findViewById(R.id.movieDescription)
 
 
         fun bind(model: Movies) {
@@ -31,4 +32,3 @@ class MovieViewHolder(parent: ViewGroup) :
 
         }
     }
-}
