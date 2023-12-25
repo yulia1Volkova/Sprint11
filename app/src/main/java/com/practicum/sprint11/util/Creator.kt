@@ -7,7 +7,10 @@ import com.practicum.sprint11.data.network.RetrofitNetworkClient
 import com.practicum.sprint11.domain.api.MoviesInteractor
 import com.practicum.sprint11.domain.repository.MoviesRepository
 import com.practicum.sprint11.domain.impl.MoviesInteractorImpl
-import com.practicum.sprint11.presentation.MoviesSearchController
+import com.practicum.sprint11.presentation.movies.MoviesSearchPresenter
+import com.practicum.sprint11.presentation.movies.MoviesView
+import com.practicum.sprint11.presentation.poster.PosterPresenter
+import com.practicum.sprint11.presentation.poster.PosterView
 import com.practicum.sprint11.ui.movies.MoviesAdapter
 
 
@@ -20,7 +23,11 @@ object Creator {
         return MoviesInteractorImpl(getMoviesRepository(context))
     }
 
-    fun provideMoviesSearchController(activity: Activity, adapter: MoviesAdapter): MoviesSearchController {
-        return MoviesSearchController(activity, adapter)
+    fun provideMoviesSearchPresenter(moviesView: MoviesView, context: Context): MoviesSearchPresenter {
+        return MoviesSearchPresenter(view = moviesView, context=context)
+    }
+
+    fun providePosterPresenter(posterView: PosterView, url:String): PosterPresenter {
+        return PosterPresenter(view = posterView, url=url)
     }
 }
